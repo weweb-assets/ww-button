@@ -1909,6 +1909,7 @@ export default {
     overflow-wrap: break-word;
     -webkit-line-break: after-white-space;
     outline: none;
+    white-space: pre-wrap;
 }
 
 .no-text {
