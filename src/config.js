@@ -77,10 +77,16 @@ function getTypoOptions(content) {
     return options;
 }
 
+const INFO = {
+    submit: 'sub',
+    reset: 'rst',
+    button: 'btn',
+};
+
 export function getConfig(content) {
     return {
         additionalInfo: {
-            topRight: content.tag === 'button' ? 'btn' : content.tag,
+            topRight: content.buttonType && INFO[content.buttonType],
         },
         styleOptions: {
             ...getTypoOptions(content),
