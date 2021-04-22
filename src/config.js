@@ -79,6 +79,9 @@ function getTypoOptions(content) {
 
 export function getConfig(content) {
     return {
+        additionalInfo: {
+            topRight: content.tag === 'button' ? 'btn' : content.tag,
+        },
         styleOptions: {
             ...getTypoOptions(content),
             textAlign: {
