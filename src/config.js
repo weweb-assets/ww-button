@@ -174,7 +174,7 @@ export function getConfig(content) {
     if (content.buttonType && INFO[content.buttonType]) {
         config.infoTag = {
             color: 'var(--ww-color-blue-500)',
-            text: INFO[content.buttonType],
+            text: INFO[content.buttonType].toUpperCase(),
             action: () => {
                 wwLib.wwSearchBar.executeAction({
                     actions: wwLib.wwSearchBar.getEditSidebarActions('settings', 'custom-0'),
