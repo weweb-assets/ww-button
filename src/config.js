@@ -142,8 +142,8 @@ export function getConfig(content) {
                 options: {
                     options: [
                         { value: null, label: 'none' },
-                        { value: 'capitalize', label: 'capitalize' },
-                        { value: 'uppercase', label: 'uppercase' },
+                        { value: 'capitalize', label: 'Capitalize' },
+                        { value: 'uppercase', label: 'UPPERCASE' },
                         { value: 'lowercase', label: 'lowercase' },
                     ],
                 },
