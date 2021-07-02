@@ -55,7 +55,7 @@ export default {
             return (
                 this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION &&
                 this.wwEditorState.isDoubleSelected &&
-                !this.isTextBinded
+                !this.isTextBound
             );
             /* wwManager:end */
             /* wwFront:start */
@@ -100,8 +100,8 @@ export default {
                 : 'div';
         },
         /* wwManager:start */
-        isTextBinded() {
-            return this.wwEditorState.bindedProps['text'];
+        isTextBound() {
+            return this.wwEditorState.boundProps['text'];
         },
         /* wwManager:end */
     },
@@ -157,10 +157,10 @@ export default {
             this.$emit('change-borders-style', this.canEditText ? bordersStyle : {});
         },
         'wwEditorState.isDoubleSelected'(newVal, oldVal) {
-            if (newVal && !oldVal && this.isTextBinded) {
+            if (newVal && !oldVal && this.isTextBound) {
                 wwLib.wwNotification.open({
                     text: {
-                        en: 'Binded buttons cannot be edited.',
+                        en: 'Bound buttons cannot be edited.',
                         fr: 'Les boutons bindés ne peuvent pas être édités.',
                     },
                     color: 'purple',
