@@ -13,9 +13,9 @@
 </template>
 
 <script>
-/* wwEditor: start */
+/* wwEditor:start */
 import { getConfig } from './config.js';
-/* wwEditor: end */
+/* wwEditor:end */
 
 export default {
     wwDefaultContent: {
@@ -37,28 +37,28 @@ export default {
         fontWeight: wwLib.allowState(wwLib.responsive('')),
         font: wwLib.allowState(wwLib.responsive(null)),
     },
-    /* wwEditor: start */
+    /* wwEditor:start */
     wwEditorConfiguration({ content }) {
         return getConfig(content);
     },
-    /* wwEditor: end */
+    /* wwEditor:end */
     props: {
         content: { type: Object, required: true },
         wwElementState: { type: Object, required: true },
-        /* wwManager: start */
+        /* wwEditor:start */
         wwEditorState: { type: Object, required: true },
-        /* wwManager: end */
+        /* wwEditor:end */
     },
     emits: ['update:content', 'update:content:effect', 'change-menu-visibility', 'change-borders-style'],
     computed: {
         canEditText() {
-            /* wwManager:start */
+            /* wwEditor:start */
             return (
                 this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION &&
                 this.wwEditorState.isDoubleSelected &&
                 !this.isTextBound
             );
-            /* wwManager:end */
+            /* wwEditor:end */
             /* wwFront:start */
             // eslint-disable-next-line no-unreachable
             return false;
@@ -102,11 +102,11 @@ export default {
                 ? 'button'
                 : 'div';
         },
-        /* wwManager:start */
+        /* wwEditor:start */
         isTextBound() {
             return this.wwEditorState.boundProps['text'];
         },
-        /* wwManager:end */
+        /* wwEditor:end */
     },
     /* wwEditor:start */
     watch: {
