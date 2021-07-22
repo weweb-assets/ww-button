@@ -1,7 +1,8 @@
 {
     "componentPath": "./src/wwObject.vue",
     "options": {
-        "autoByContent": true
+        "autoByContent": true,
+        "lazyHydrate": true
     },
     "editor": {
         "label": {
