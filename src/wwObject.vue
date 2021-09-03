@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" class="ww-button" :class="{ button: tag }" :type="content.buttonType">
+    <component :is="tag" class="ww-button" :class="{ button: tag }" :type="buttonType">
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
         <wwEditableText
             class="ww-button__text"
@@ -96,11 +96,15 @@ export default {
             return false;
         },
         tag() {
-            return !this.isEditing &&
-                (this.content.buttonType === 'submit' || this.content.buttonType === 'reset') &&
-                !this.wwElementState.isInsideLink
-                ? 'button'
-                : 'div';
+            if (this.isEditing) return 'div';
+            if (this.content.buttonType === 'submit' || this.content.buttonType === 'reset') return 'button';
+            return 'div';
+        },
+        buttonType() {
+            if (this.isEditing) return '';
+            if (this.content.buttonType === 'submit' || this.content.buttonType === 'reset')
+                return this.content.buttonType;
+            return '';
         },
         /* wwEditor:start */
         isTextBound() {
