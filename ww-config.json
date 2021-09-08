@@ -2,7 +2,8 @@
     "componentPath": "./src/wwObject.vue",
     "options": {
         "autoByContent": true,
-        "lazyHydrate": true
+        "lazyHydrate": true,
+        "hyperlink": true
     },
     "editor": {
         "label": {
