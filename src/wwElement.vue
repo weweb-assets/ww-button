@@ -13,35 +13,7 @@
 </template>
 
 <script>
-/* wwEditor:start */
-import { getConfig } from './config.js';
-/* wwEditor:end */
-
 export default {
-    wwDefaultContent: {
-        text: {
-            en: 'My button',
-        },
-        hasRightIcon: false,
-        hasLeftIcon: false,
-        buttonType: 'button',
-        textAlign: wwLib.responsive(''),
-        fontSize: wwLib.allowState(wwLib.responsive('16px')),
-        fontFamily: wwLib.allowState(wwLib.responsive('')),
-        color: wwLib.allowState(wwLib.responsive('')),
-        backgroundColor: wwLib.allowState(wwLib.responsive('')),
-        textTransform: wwLib.allowState(wwLib.responsive('')),
-        textShadow: wwLib.allowState(wwLib.responsive('')),
-        lineHeight: wwLib.allowState(wwLib.responsive('')),
-        wordSpacing: wwLib.allowState(wwLib.responsive('')),
-        fontWeight: wwLib.allowState(wwLib.responsive('')),
-        font: wwLib.allowState(wwLib.responsive(null)),
-    },
-    /* wwEditor:start */
-    wwEditorConfiguration({ content }) {
-        return getConfig(content);
-    },
-    /* wwEditor:end */
     props: {
         content: { type: Object, required: true },
         wwElementState: { type: Object, required: true },
