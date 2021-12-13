@@ -16,6 +16,7 @@
 export default {
     props: {
         content: { type: Object, required: true },
+        wwFrontState: { type: Object, required: true },
         wwElementState: { type: Object, required: true },
         /* wwEditor:start */
         wwEditorState: { type: Object, required: true },
@@ -92,7 +93,7 @@ export default {
                     return;
                 }
                 if (hasRightIcon && !this.content.rightIcon) {
-                    const uid = await wwLib.wwObjectHelper.create('ww-icon');
+                    const uid = await wwLib.wwObjectHelper.create('ww-icon', {}, {}, this.wwFrontState.sectionId);
                     this.$emit('update:content:effect', { rightIcon: { uid, isWwObject: true } });
                 }
             },
@@ -103,7 +104,7 @@ export default {
                     return;
                 }
                 if (hasLeftIcon && !this.content.leftIcon) {
-                    const uid = await wwLib.wwObjectHelper.create('ww-icon');
+                    const uid = await wwLib.wwObjectHelper.create('ww-icon', {}, {}, this.wwFrontState.sectionId);
                     this.$emit('update:content:effect', { leftIcon: { uid, isWwObject: true } });
                 }
             },
