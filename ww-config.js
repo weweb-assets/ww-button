@@ -77,7 +77,11 @@ export default {
             },
             type: 'Length',
             options: {
-                unitChoices: [{ value: 'px', label: 'px', min: 1, max: 100 }],
+                unitChoices: [
+                    { value: 'px', label: 'px', min: 1, max: 100 },
+                    { value: 'em', label: 'em', min: 1, max: 10, digits: 2 },
+                    { value: 'rem', label: 'rem', min: 1, max: 10, digits: 2 },
+                ],
             },
             responsive: true,
             states: true,
