@@ -131,8 +131,10 @@ export default {
             options: {
                 unitChoices: [
                     { value: 'px', label: 'px', min: 0, max: 100 },
+                    { value: '', label: 'none', min: 0, max: 10 },
                     { value: '%', label: '%', min: 0, max: 100 },
-                    { value: 'em', label: 'em', min: 0, max: 100 },
+                    { value: 'em', label: 'em', min: 0, max: 10, digits: 2 },
+                    { value: 'em', label: 'rem', min: 0, max: 10, digits: 2 },
                     { value: 'normal', label: 'auto', default: true },
                 ],
             },
