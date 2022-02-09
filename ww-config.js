@@ -14,6 +14,7 @@ export default {
             en: 'Button',
             fr: 'Bouton',
         },
+        icon: 'fontawesome/solid/hand-pointer',
         menuOptions: {
             quick: {
                 sections: ['ww-link', 'hasLeftIcon', 'hasRightIcon'],
