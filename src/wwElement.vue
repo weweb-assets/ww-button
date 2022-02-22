@@ -58,7 +58,11 @@ export default {
                 backgroundColor: this.content.backgroundColor,
                 textTransform: this.content.textTransform,
                 textShadow: this.content.textShadow,
+                letterSpacing: this.content.latterSpacing,
                 wordSpacing: this.content.wordSpacing,
+                textDecoration: this.content.textDecoration,
+                textDecorationStyle: this.content.textDecorationStyle,
+                textDecorationColor: this.content.textDecorationColor,
             };
         },
         isEditing() {
