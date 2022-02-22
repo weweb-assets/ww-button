@@ -280,7 +280,7 @@ export default {
             responsive: true,
             states: true,
         },
-        latterSpacing: {
+        letterSpacing: {
             label: {
                 en: 'Letter spacing',
                 fr: 'Espacement des lettres',
