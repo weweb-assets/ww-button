@@ -107,7 +107,7 @@ export default {
             type: 'TextSelect',
             options: {
                 options: [
-                    { value: null, label: { en: 'Default', fr: 'Par défaut' } },
+                    { value: 'initial', label: { en: 'Default', fr: 'Par défaut' } },
                     { value: 100, label: { en: '100 - Thin' } },
                     { value: 200, label: { en: '200 - Extra Light' } },
                     { value: 300, label: { en: '300 - Light' } },
@@ -119,6 +119,7 @@ export default {
                     { value: 900, label: { en: '900 - Black' } },
                 ],
             },
+            defaultValue: 'initial',
             responsive: true,
             states: true,
             hidden: content => content.font,
@@ -194,6 +195,60 @@ export default {
             responsive: true,
             states: true,
         },
+        textDecoration: {
+            label: {
+                en: 'Text decoration',
+                fr: 'Text decoration',
+            },
+            type: 'TextSelect',
+            options: {
+                options: [
+                    { value: 'none', label: { en: 'None', fr: 'None' }, default: true },
+                    { value: 'underline', label: { en: 'Underline' } },
+                    { value: 'overline', label: { en: 'Overline' } },
+                    { value: 'line-through', label: { en: 'Line-through' } },
+                ],
+            },
+            defaultValue: 'none',
+            bindable: true,
+            responsive: true,
+            states: true,
+        },
+        textDecorationStyle: {
+            label: {
+                en: 'Decoration style',
+                fr: 'Decoration style',
+            },
+            type: 'TextSelect',
+            options: {
+                options: [
+                    { value: 'solid', label: { en: 'Solid' }, default: true },
+                    { value: 'double', label: { en: 'Double' } },
+                    { value: 'dotted', label: { en: 'Dotted' } },
+                    { value: 'dashed', label: { en: 'Dashed' } },
+                    { value: 'wavy', label: { en: 'Wavy' } },
+                ],
+            },
+            defaultValue: 'solid',
+            responsive: true,
+            bindable: true,
+            states: true,
+            hidden: content => content.textDecoration === 'none',
+        },
+        textDecorationColor: {
+            label: {
+                en: 'Decoration color',
+                fr: 'Decoration color',
+            },
+            type: 'Color',
+            options: {
+                nullable: true,
+            },
+            responsive: true,
+            bindable: true,
+            states: true,
+            hidden: content => content.textDecoration === 'none',
+        },
         textTransform: {
             label: {
                 en: 'Character case',
@@ -202,13 +257,14 @@ export default {
             type: 'TextSelect',
             options: {
                 options: [
-                    { value: null, label: 'none' },
+                    { value: 'none', label: 'none' },
                     { value: 'capitalize', label: 'Capitalize' },
                     { value: 'uppercase', label: 'UPPERCASE' },
                     { value: 'lowercase', label: 'lowercase' },
                     { value: 'lowercase', label: 'lowercase' },
                 ],
             },
+            defaultValue: 'none',
             responsive: true,
             states: true,
         },
@@ -220,6 +276,18 @@ export default {
             type: 'Shadows',
             options: {
                 isText: true,
+            },
+            responsive: true,
+            states: true,
+        },
+        letterSpacing: {
+            label: {
+                en: 'Letter spacing',
+                fr: 'Espacement des lettres',
+            },
+            type: 'Length',
+            options: {
+                unitChoices: [{ value: 'px', label: 'px', min: 0, max: 100 }],
             },
             responsive: true,
             states: true,
