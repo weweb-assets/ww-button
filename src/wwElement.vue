@@ -4,7 +4,7 @@
         class="ww-button"
         :class="{ button: tag }"
         :type="buttonType"
-        :ww-flag="'btn-' + content.buttonType"
+        :data-ww-flag="'btn-' + content.buttonType"
     >
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
         <wwEditableText
