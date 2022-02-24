@@ -37,6 +37,49 @@ export default {
                 return [];
             }
         },
+        workflowHint: content => {
+            if (content.buttonType !== 'submit') {
+                return false;
+            }
+
+            return {
+                type: 'warning',
+                header: {
+                    en: 'You should not trigger workflow on submit buttons',
+                    fr: 'Vous ne devriez pas déclencher un workflow depuis un bouton submit',
+                },
+                text: {
+                    en: 'We recommand to trigger them from the parent form container',
+                    fr: 'Nous vous recommandons de le déclencher depuis le form container parent.',
+                },
+                button: {
+                    text: { en: 'Select form container', fr: 'Selectionnez le form container' },
+                    action: () => {
+                        const currentEl = wwLib.wwUtils.getSelectedComponent();
+
+                        const parentFormContainerEl = currentEl.closest('[data-ww-flag="form-container"]');
+                        if (parentFormContainerEl) {
+                            wwLib.$store.dispatch('manager/resetSelectedObjects');
+                            wwLib.$store.dispatch('manager/setSelectedObject', {
+                                uid: parentFormContainerEl.parentNode.getAttribute('data-ww-uid'),
+                                componentId: parentFormContainerEl.parentNode.getAttribute('data-ww-component-id'),
+                                layoutId: parentFormContainerEl.parentNode.getAttribute('data-ww-layout-id'),
+                                layoutIndex: parentFormContainerEl.parentNode.getAttribute('data-ww-layout-index'),
+                            });
+                        } else {
+                            wwLib.wwNotification.open({
+                                text: {
+                                    en: 'No parent form container found. Please, add this submit button into a form container.',
+                                    fr: 'Aucun formulaire parent trouvé. Veuillez intégrer ce bouton submit dans un form container.',
+                                },
+                                color: 'yellow',
+                                duration: 6000,
+                            });
+                        }
+                    },
+                },
+            };
+        },
     },
     properties: {
         text: {
