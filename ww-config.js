@@ -54,29 +54,7 @@ export default {
                 },
                 button: {
                     text: { en: 'Select form container', fr: 'Selectionnez le form container' },
-                    action: () => {
-                        const currentEl = wwLib.wwUtils.getSelectedComponent();
-
-                        const parentFormContainerEl = currentEl.closest('[data-ww-flag="form-container"]');
-                        if (parentFormContainerEl) {
-                            wwLib.$store.dispatch('manager/resetSelectedObjects');
-                            wwLib.$store.dispatch('manager/setSelectedObject', {
-                                uid: parentFormContainerEl.parentNode.getAttribute('data-ww-uid'),
-                                componentId: parentFormContainerEl.parentNode.getAttribute('data-ww-component-id'),
-                                layoutId: parentFormContainerEl.parentNode.getAttribute('data-ww-layout-id'),
-                                layoutIndex: parentFormContainerEl.parentNode.getAttribute('data-ww-layout-index'),
-                            });
-                        } else {
-                            wwLib.wwNotification.open({
-                                text: {
-                                    en: 'No parent form container found. Please, add this submit button into a form container.',
-                                    fr: 'Aucun formulaire parent trouvé. Veuillez intégrer ce bouton submit dans un form container.',
-                                },
-                                color: 'yellow',
-                                duration: 6000,
-                            });
-                        }
-                    },
+                    action: 'selectParentFormContainer',
                 },
             };
         },

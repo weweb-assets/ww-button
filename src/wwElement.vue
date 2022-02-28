@@ -160,6 +160,21 @@ export default {
         updateText(text) {
             this.$emit('update:content', { text });
         },
+        /* wwEditor:start */
+        selectParentFormContainer() {
+            const parentUid = wwLib.selectParentByFlag(this.$el, 'form-container');
+            if (!parentUid) {
+                wwLib.wwNotification.open({
+                    text: {
+                        en: 'No parent form container found. Please, add this submit button into a form container.',
+                        fr: 'Aucun formulaire parent trouvé. Veuillez intégrer ce bouton submit dans un form container.',
+                    },
+                    color: 'yellow',
+                    duration: 6000,
+                });
+            }
+        },
+        /* wwEditor:end */
     },
 };
 </script>
