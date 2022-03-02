@@ -261,7 +261,6 @@ export default {
                     { value: 'capitalize', label: 'Capitalize' },
                     { value: 'uppercase', label: 'UPPERCASE' },
                     { value: 'lowercase', label: 'lowercase' },
-                    { value: 'lowercase', label: 'lowercase' },
                 ],
             },
             defaultValue: 'none',
@@ -289,6 +288,7 @@ export default {
             options: {
                 unitChoices: [{ value: 'px', label: 'px', min: 0, max: 100 }],
             },
+            defaultValue: '0px',
             responsive: true,
             states: true,
         },
@@ -301,6 +301,7 @@ export default {
             options: {
                 unitChoices: [{ value: 'px', label: 'px', min: 0, max: 100 }],
             },
+            defaultValue: '0px',
             responsive: true,
             states: true,
         },
