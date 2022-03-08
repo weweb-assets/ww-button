@@ -1,5 +1,11 @@
 <template>
-    <component :is="tag" class="ww-button" :class="{ button: tag }" :type="buttonType">
+    <component
+        :is="tag"
+        class="ww-button"
+        :class="{ button: tag }"
+        :type="buttonType"
+        :data-ww-flag="'btn-' + content.buttonType"
+    >
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
         <wwEditableText
             class="ww-button__text"
@@ -158,6 +164,21 @@ export default {
         updateText(text) {
             this.$emit('update:content', { text });
         },
+        /* wwEditor:start */
+        selectParentFormContainer() {
+            const parentUid = wwLib.selectParentByFlag(this.$el, 'form-container');
+            if (!parentUid) {
+                wwLib.wwNotification.open({
+                    text: {
+                        en: 'No parent form container found. Please, add this submit button into a form container.',
+                        fr: 'Aucun formulaire parent trouvé. Veuillez intégrer ce bouton submit dans un form container.',
+                    },
+                    color: 'yellow',
+                    duration: 6000,
+                });
+            }
+        },
+        /* wwEditor:end */
     },
 };
 </script>
