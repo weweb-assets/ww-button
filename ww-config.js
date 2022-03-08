@@ -45,12 +45,12 @@ export default {
             return {
                 type: 'warning',
                 header: {
-                    en: 'You should not trigger workflow on submit buttons',
+                    en: 'You probably shouldn’t trigger workflows on submit buttons.',
                     fr: 'Vous ne devriez pas déclencher un workflow depuis un bouton submit',
                 },
                 text: {
-                    en: 'We recommand to trigger them from the parent form container',
-                    fr: 'Nous vous recommandons de le déclencher depuis le form container parent.',
+                    en: 'For your users to benefit from automatic form field validation, you should trigger submit workflows on the form container. Unless you are 100% sure of what you’re doing and want to bypass this behavior.',
+                    fr: 'Pour que vos utilisateurs bénéficient de la validation automatique des champs de formulaire, vous devez déclencher des workflows de soumission sur le conteneur de formulaire. À moins que vous ne soyez sûr à 100 % de ce que vous faites et que vous souhaitiez contourner ce comportement.',
                 },
                 button: {
                     text: { en: 'Select form container', fr: 'Selectionnez le form container' },
