@@ -6,15 +6,9 @@
         :type="buttonType"
         :data-ww-flag="'btn-' + content.buttonType"
     >
-        <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
-        <wwEditableText
-            class="ww-button__text"
-            :disabled="!canEditText"
-            :model-value="content.text"
-            :text-style="textStyle"
-            @update:modelValue="updateText"
-        ></wwEditableText>
-        <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>
+        <wwElement v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwElement>
+        <wwText tag="span" :text="text"></wwText>
+        <wwElement v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwElement>
     </component>
 </template>
 
@@ -30,47 +24,6 @@ export default {
     },
     emits: ['update:content', 'update:content:effect', 'change-menu-visibility', 'change-borders-style'],
     computed: {
-        canEditText() {
-            /* wwEditor:start */
-            return (
-                this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION &&
-                this.wwEditorState.isDoubleSelected &&
-                !this.isTextBound
-            );
-            /* wwEditor:end */
-            /* wwFront:start */
-            // eslint-disable-next-line no-unreachable
-            return false;
-            /* wwFront:end */
-        },
-        textStyle() {
-            return {
-                ...(this.content.font
-                    ? {
-                          fontSize: 'unset',
-                          fontFamily: 'unset',
-                          lineHeight: 'unset',
-                          fontWeight: 'unset',
-                          font: this.content.font,
-                      }
-                    : {
-                          fontSize: this.content.fontSize,
-                          fontFamily: this.content.fontFamily,
-                          lineHeight: this.content.lineHeight,
-                          fontWeight: this.content.fontWeight,
-                      }),
-                textAlign: this.content.textAlign,
-                color: this.content.color,
-                backgroundColor: this.content.backgroundColor,
-                textTransform: this.content.textTransform,
-                textShadow: this.content.textShadow,
-                letterSpacing: this.content.letterSpacing,
-                wordSpacing: this.content.wordSpacing,
-                textDecoration: this.content.textDecoration,
-                textDecorationStyle: this.content.textDecorationStyle,
-                textDecorationColor: this.content.textDecorationColor,
-            };
-        },
         isEditing() {
             /* wwEditor:start */
             return this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION;
@@ -89,11 +42,9 @@ export default {
                 return this.content.buttonType;
             return '';
         },
-        /* wwEditor:start */
-        isTextBound() {
-            return this.wwEditorState.boundProps['text'];
+        text() {
+            return this.wwElementState.props.text;
         },
-        /* wwEditor:end */
     },
     /* wwEditor:start */
     watch: {
@@ -119,51 +70,9 @@ export default {
                 }
             },
         },
-        'content.font': {
-            async handler(newVal, oldVal) {
-                if (this.wwEditorState.isACopy) {
-                    return;
-                }
-                if (!newVal && oldVal) {
-                    const defaultValue = wwLib.getStyleFromToken(oldVal);
-                    const typo = wwLib.getTypoFromToken(defaultValue);
-                    this.$emit('update:content:effect', typo);
-                } else if (newVal && newVal !== oldVal) {
-                    const defaultValue = wwLib.getStyleFromToken(newVal);
-                    const typo = wwLib.getTypoFromToken(defaultValue);
-                    this.$emit('update:content:effect', typo);
-                }
-            },
-        },
-        canEditText() {
-            const bordersStyle = {
-                width: 'calc(100% + 8px)',
-                height: 'calc(100% + 8px)',
-                top: '-4px',
-                left: '-4px',
-                border: '4px solid var(--ww-color-blue-200)',
-            };
-            this.$emit('change-menu-visibility', this.wwEditorState.isSelected && !this.canEditText);
-            this.$emit('change-borders-style', this.canEditText ? bordersStyle : {});
-        },
-        'wwEditorState.isDoubleSelected'(newVal, oldVal) {
-            if (newVal && !oldVal && this.isTextBound) {
-                wwLib.wwNotification.open({
-                    text: {
-                        en: 'Binded buttons cannot be edited.',
-                        fr: 'Les boutons bindés ne peuvent pas être édités.',
-                    },
-                    color: 'purple',
-                    duration: 3000,
-                });
-            }
-        },
     },
     /* wwEditor:end */
     methods: {
-        updateText(text) {
-            this.$emit('update:content', { text });
-        },
         /* wwEditor:start */
         selectParentFormContainer() {
             const parentUid = wwLib.selectParentByFlag(this.$el, 'form-container');
