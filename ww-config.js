@@ -15,12 +15,6 @@ export default {
             fr: 'Bouton',
         },
         icon: 'fontawesome/solid/hand-pointer',
-        menuOptions: {
-            quick: {
-                sections: ['ww-link', 'hasLeftIcon', 'hasRightIcon'],
-                bind: [{ prop: 'text', label: { en: 'Bind text' } }],
-            },
-        },
         infoTags: content => {
             if (content.buttonType && INFO[content.buttonType]) {
                 return {
