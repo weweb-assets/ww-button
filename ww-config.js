@@ -301,7 +301,11 @@ export default {
             },
             type: 'Length',
             options: {
-                unitChoices: [{ value: 'px', label: 'px', min: 0, max: 100 }],
+                unitChoices: [
+                { value: 'px', label: 'px', min: -100, max: 100 },
+                { value: 'em', label: 'em', min: -100, max: 100 },
+                { value: 'rem', label: 'rem', min: -100, max: 100 },
+            ],
             },
             defaultValue: '0px',
             responsive: true,
