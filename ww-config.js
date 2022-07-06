@@ -336,7 +336,6 @@ export default {
                     { value: null, label: 'none' },
                     { value: 'button', label: 'Button' },
                     { value: 'submit', label: 'Submit Button' },
-                    { value: 'reset', label: 'Reset Button' },
                 ],
             },
             defaultValue: 'button',
