@@ -195,5 +195,8 @@ export default {
         font-family: inherit;
         font-size: inherit;
     }
+    &__text {
+        flex: 1;
+    }
 }
 </style>
