@@ -4,6 +4,7 @@
         class="ww-button"
         :class="{ button: tag }"
         :type="buttonType"
+        :style="buttonStyle"
         :data-ww-flag="'btn-' + content.buttonType"
     >
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
@@ -19,6 +20,12 @@
 </template>
 
 <script>
+const TEXT_ALIGN_TO_JUSTIFY = {
+    center: 'center',
+    right: 'flex-end',
+    left: 'flex-start',
+    justify: 'center',
+};
 export default {
     props: {
         content: { type: Object, required: true },
@@ -69,6 +76,11 @@ export default {
                 textDecoration: this.content.textDecoration,
                 textDecorationStyle: this.content.textDecorationStyle,
                 textDecorationColor: this.content.textDecorationColor,
+            };
+        },
+        buttonStyle() {
+            return {
+                justifyContent: TEXT_ALIGN_TO_JUSTIFY[this.content.textAlign] || 'center',
             };
         },
         isEditing() {
@@ -194,9 +206,6 @@ export default {
         background: none;
         font-family: inherit;
         font-size: inherit;
-    }
-    &__text {
-        flex: 1;
     }
 }
 </style>
