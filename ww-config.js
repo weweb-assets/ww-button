@@ -264,6 +264,25 @@ export default {
             states: true,
             hidden: content => content.textDecoration === 'none',
         },
+        nowrap: {
+            label: {
+                en: 'No-wrap',
+            },
+            type: 'OnOff',
+            defaultValue: false,
+            responsive: true,
+            states: true,
+        },
+        ellipsis: {
+            hidden: content => !content.nowrap,
+            label: {
+                en: 'Ellipsis',
+            },
+            type: 'OnOff',
+            defaultValue: false,
+            responsive: true,
+            states: true,
+        },
         textTransform: {
             label: {
                 en: 'Character case',
@@ -302,10 +321,10 @@ export default {
             type: 'Length',
             options: {
                 unitChoices: [
-                { value: 'px', label: 'px', min: -100, max: 100 },
-                { value: 'em', label: 'em', min: -100, max: 100 },
-                { value: 'rem', label: 'rem', min: -100, max: 100 },
-            ],
+                    { value: 'px', label: 'px', min: -100, max: 100 },
+                    { value: 'em', label: 'em', min: -100, max: 100 },
+                    { value: 'rem', label: 'rem', min: -100, max: 100 },
+                ],
             },
             defaultValue: '0px',
             responsive: true,

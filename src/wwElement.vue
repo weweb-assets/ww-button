@@ -76,6 +76,9 @@ export default {
                 textDecoration: this.content.textDecoration,
                 textDecorationStyle: this.content.textDecorationStyle,
                 textDecorationColor: this.content.textDecorationColor,
+                overflow: this.content.nowrap ? 'hidden' : 'initial',
+                whiteSpace: this.content.nowrap ? 'nowrap' : 'initial',
+                textOverflow: this.content.ellipsis ? 'ellipsis' : 'initial',
             };
         },
         buttonStyle() {
