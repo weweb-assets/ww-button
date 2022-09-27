@@ -95,12 +95,21 @@ export default {
         },
         tag() {
             if (this.isEditing) return 'div';
-            if (this.content.buttonType === 'submit' || this.content.buttonType === 'reset') return 'button';
+            if (
+                this.content.buttonType === 'submit' ||
+                this.content.buttonType === 'reset' ||
+                this.content.buttonType === 'button'
+            )
+                return 'button';
             return 'div';
         },
         buttonType() {
             if (this.isEditing) return '';
-            if (this.content.buttonType === 'submit' || this.content.buttonType === 'reset')
+            if (
+                this.content.buttonType === 'submit' ||
+                this.content.buttonType === 'reset' ||
+                this.content.buttonType === 'button'
+            )
                 return this.content.buttonType;
             return '';
         },
