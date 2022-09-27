@@ -359,6 +359,13 @@ export default {
             },
             defaultValue: 'button',
         },
+        disabled: {
+            label: { en: 'Disabled' },
+            type: 'OnOff',
+            section: 'settings',
+            defaultValue: false,
+            bindable: true,
+        },
         hasLeftIcon: {
             label: { en: 'Left icon', fr: 'Icône gauche' },
             section: 'settings',
