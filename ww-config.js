@@ -68,6 +68,12 @@ export default {
             defaultValue: {
                 en: 'New button',
             },
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'string',
+                tooltip: 'A string that defines the text content: `"My button..."`',
+            },
+            /* wwEditor:end */
         },
         font: {
             label: {
@@ -196,6 +202,13 @@ export default {
             bindable: true,
             responsive: true,
             states: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                cssSupports: 'color',
+                type: 'string',
+                tooltip: 'A string that represents a color code: `"rebeccapurple" | "#00ff00" | "rgb(214, 122, 127)"`',
+            },
+            /* wwEditor:end */
         },
         backgroundColor: {
             label: {
@@ -209,6 +222,13 @@ export default {
             bindable: true,
             responsive: true,
             states: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                cssSupports: 'color',
+                type: 'string',
+                tooltip: 'A string that represents a color code: `"rebeccapurple" | "#00ff00" | "rgb(214, 122, 127)"`',
+            },
+            /* wwEditor:end */
         },
         textDecoration: {
             label: {
@@ -228,6 +248,13 @@ export default {
             bindable: true,
             responsive: true,
             states: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'string',
+                tooltip:
+                    'A string that defines the Text decoration option: `"none" | "underline" | "overline" | "line-through"`',
+            },
+            /* wwEditor:end */
         },
         textDecorationStyle: {
             label: {
@@ -249,6 +276,13 @@ export default {
             bindable: true,
             states: true,
             hidden: content => content.textDecoration === 'none',
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'string',
+                tooltip:
+                    'A string that defines the Text decoration option: `"solid" | "double" | "dotted" | "dashed" | "wavy"`',
+            },
+            /* wwEditor:end */
         },
         textDecorationColor: {
             label: {
@@ -263,6 +297,13 @@ export default {
             bindable: true,
             states: true,
             hidden: content => content.textDecoration === 'none',
+            /* wwEditor:start */
+            bindingValidation: {
+                cssSupports: 'color',
+                type: 'string',
+                tooltip: 'A string that represents a color code: `"rebeccapurple" | "#00ff00" | "rgb(214, 122, 127)"`',
+            },
+            /* wwEditor:end */
         },
         nowrap: {
             label: {
