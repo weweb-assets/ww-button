@@ -6,6 +6,7 @@
         :type="buttonType"
         :style="buttonStyle"
         :data-ww-flag="'btn-' + content.buttonType"
+        :disabled="content.disabled"
     >
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
         <wwEditableText
@@ -35,7 +36,14 @@ export default {
         wwEditorState: { type: Object, required: true },
         /* wwEditor:end */
     },
-    emits: ['update:content', 'update:content:effect', 'change-menu-visibility', 'change-borders-style'],
+    emits: [
+        'update:content',
+        'update:content:effect',
+        'change-menu-visibility',
+        'change-borders-style',
+        'add-state',
+        'remove-state',
+    ],
     computed: {
         canEditText() {
             /* wwEditor:start */
@@ -119,8 +127,8 @@ export default {
         },
         /* wwEditor:end */
     },
-    /* wwEditor:start */
     watch: {
+        /* wwEditor:start */
         'content.hasRightIcon': {
             async handler(hasRightIcon) {
                 if (this.wwEditorState.isACopy) {
@@ -182,8 +190,18 @@ export default {
                 });
             }
         },
+        /* wwEditor:end */
+        'content.disabled': {
+            immediate: true,
+            handler(value) {
+                if (value) {
+                    this.$emit('add-state', 'disabled');
+                } else {
+                    this.$emit('remove-state', 'disabled');
+                }
+            },
+        },
     },
-    /* wwEditor:end */
     methods: {
         updateText(text) {
             this.$emit('update:content', { text });
