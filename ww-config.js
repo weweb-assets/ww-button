@@ -14,7 +14,7 @@ export default {
             en: 'Button',
             fr: 'Bouton',
         },
-        icon: 'fontawesome/solid/hand-pointer',
+        icon: 'cursor-click',
         infoTags: content => {
             if (content.buttonType && INFO[content.buttonType]) {
                 return {
