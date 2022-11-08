@@ -406,6 +406,12 @@ export default {
             section: 'settings',
             defaultValue: false,
             bindable: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'boolean',
+                tooltip: 'A boolean that defines if the button is disabled: `true | false`',
+            },
+            /* wwEditor:end */
         },
         hasLeftIcon: {
             label: { en: 'Left icon', fr: 'Icône gauche' },
