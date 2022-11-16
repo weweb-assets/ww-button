@@ -8,6 +8,7 @@ export default {
     options: {
         autoByContent: true,
         hyperlink: true,
+        disableLink: content => content.disabled,
     },
     editor: {
         label: {
