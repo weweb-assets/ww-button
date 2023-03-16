@@ -14,6 +14,7 @@
             :disabled="!canEditText"
             :model-value="content.text"
             :text-style="textStyle"
+            :sanitize="content.sanitize"
             @update:modelValue="updateText"
         ></wwEditableText>
         <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>

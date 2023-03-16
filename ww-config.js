@@ -76,6 +76,15 @@ export default {
             },
             /* wwEditor:end */
         },
+        sanitize: {
+            label: {
+                en: 'Sanitize',
+            },
+            type: 'OnOff',
+            bindable: true,
+            defaultValue: false,
+            hidden: (content, sidePanelContent, boundProps, wwProps) => !!(wwProps && wwProps.text),
+        },
         font: {
             label: {
                 en: 'Typography',
