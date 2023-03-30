@@ -9,19 +9,14 @@ export default {
     options: {
         autoByContent: true,
         hyperlink: true,
+        disableLink: content => content.disabled,
     },
     editor: {
         label: {
             en: 'Button',
             fr: 'Bouton',
         },
-        icon: 'fontawesome/solid/hand-pointer',
-        menuOptions: {
-            quick: {
-                sections: ['ww-link', 'hasLeftIcon', 'hasRightIcon'],
-                bind: [{ prop: 'text', label: { en: 'Bind text' } }],
-            },
-        },
+        icon: 'cursor-click',
         infoTags: content => {
             if (content.buttonType && INFO[content.buttonType]) {
                 return {
@@ -61,6 +56,26 @@ export default {
         },
     },
     properties: {
+        backgroundColor: {
+            label: {
+                en: 'Text Background',
+                fr: 'Background du Texte',
+            },
+            type: 'Color',
+            options: {
+                nullable: true,
+            },
+            bindable: true,
+            responsive: true,
+            states: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                cssSupports: 'color',
+                type: 'string',
+                tooltip: 'A string that represents a color code: `"rebeccapurple" | "#00ff00" | "rgb(214, 122, 127)"`',
+            },
+            /* wwEditor:end */
+        },
         buttonType: {
             label: {
                 en: 'Type',
@@ -73,10 +88,22 @@ export default {
                     { value: null, label: 'none' },
                     { value: 'button', label: 'Button' },
                     { value: 'submit', label: 'Submit Button' },
-                    { value: 'reset', label: 'Reset Button' },
                 ],
             },
             defaultValue: 'button',
+        },
+        disabled: {
+            label: { en: 'Disabled' },
+            type: 'OnOff',
+            section: 'settings',
+            defaultValue: false,
+            bindable: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'boolean',
+                tooltip: 'A boolean that defines if the button is disabled: `true | false`',
+            },
+            /* wwEditor:end */
         },
         hasLeftIcon: {
             label: { en: 'Left icon', fr: 'Icône gauche' },

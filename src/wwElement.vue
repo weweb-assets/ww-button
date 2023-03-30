@@ -4,7 +4,9 @@
         class="ww-button"
         :class="{ button: tag }"
         :type="buttonType"
+        :style="buttonStyle"
         :data-ww-flag="'btn-' + content.buttonType"
+        :disabled="content.disabled"
     >
         <wwElement v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwElement>
         <wwText tag="span" :text="text"></wwText>
@@ -13,6 +15,12 @@
 </template>
 
 <script>
+const TEXT_ALIGN_TO_JUSTIFY = {
+    center: 'center',
+    right: 'flex-end',
+    left: 'flex-start',
+    justify: 'center',
+};
 export default {
     props: {
         content: { type: Object, required: true },
@@ -22,8 +30,20 @@ export default {
         wwEditorState: { type: Object, required: true },
         /* wwEditor:end */
     },
-    emits: ['update:content', 'update:content:effect', 'change-menu-visibility', 'change-borders-style'],
+    emits: [
+        'update:content',
+        'update:content:effect',
+        'change-menu-visibility',
+        'change-borders-style',
+        'add-state',
+        'remove-state',
+    ],
     computed: {
+        buttonStyle() {
+            return {
+                justifyContent: TEXT_ALIGN_TO_JUSTIFY[this.content.textAlign] || 'center',
+            };
+        },
         isEditing() {
             /* wwEditor:start */
             return this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION;
@@ -33,12 +53,21 @@ export default {
         },
         tag() {
             if (this.isEditing) return 'div';
-            if (this.content.buttonType === 'submit' || this.content.buttonType === 'reset') return 'button';
+            if (
+                this.content.buttonType === 'submit' ||
+                this.content.buttonType === 'reset' ||
+                this.content.buttonType === 'button'
+            )
+                return 'button';
             return 'div';
         },
         buttonType() {
             if (this.isEditing) return '';
-            if (this.content.buttonType === 'submit' || this.content.buttonType === 'reset')
+            if (
+                this.content.buttonType === 'submit' ||
+                this.content.buttonType === 'reset' ||
+                this.content.buttonType === 'button'
+            )
                 return this.content.buttonType;
             return '';
         },
@@ -46,8 +75,8 @@ export default {
             return this.wwElementState.props.text;
         },
     },
-    /* wwEditor:start */
     watch: {
+        /* wwEditor:start */
         'content.hasRightIcon': {
             async handler(hasRightIcon) {
                 if (this.wwEditorState.isACopy) {
@@ -70,8 +99,18 @@ export default {
                 }
             },
         },
+        /* wwEditor:end */
+        'content.disabled': {
+            immediate: true,
+            handler(value) {
+                if (value) {
+                    this.$emit('add-state', 'disabled');
+                } else {
+                    this.$emit('remove-state', 'disabled');
+                }
+            },
+        },
     },
-    /* wwEditor:end */
     methods: {
         /* wwEditor:start */
         selectParentFormContainer() {
