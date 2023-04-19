@@ -41,7 +41,7 @@ export default {
     computed: {
         buttonStyle() {
             return {
-                justifyContent: TEXT_ALIGN_TO_JUSTIFY[this.content.textAlign] || 'center',
+                justifyContent: TEXT_ALIGN_TO_JUSTIFY[this.content._ww-text_textAlign] || 'center',
             };
         },
         isEditing() {
