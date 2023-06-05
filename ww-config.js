@@ -91,6 +91,7 @@ export default {
                 ],
             },
             defaultValue: 'button',
+            noClasses: true,
         },
         disabled: {
             label: { en: 'Disabled' },
@@ -98,6 +99,7 @@ export default {
             section: 'settings',
             defaultValue: false,
             bindable: true,
+            noClasses: true,
             /* wwEditor:start */
             bindingValidation: {
                 type: 'boolean',
@@ -109,17 +111,21 @@ export default {
             label: { en: 'Left icon', fr: 'Icône gauche' },
             section: 'settings',
             type: 'OnOff',
+            noClasses: true,
         },
         leftIcon: {
             hidden: true,
+            noClasses: true,
         },
         hasRightIcon: {
             label: { en: 'Right icon', fr: 'Icône droite' },
             type: 'OnOff',
             section: 'settings',
+            noClasses: true,
         },
         rightIcon: {
             hidden: true,
+            noClasses: true,
         },
     },
 };
