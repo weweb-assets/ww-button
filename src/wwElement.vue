@@ -99,6 +99,15 @@ export default {
                 }
             },
         },
+        'content._ww-text_font'() {
+            this.$emit('update:content:effect', {
+                '_ww-text_fontSize': undefined,
+                '_ww-text_fontFamily': undefined,
+                '_ww-text_fontWeight': undefined,
+                '_ww-text_fontStyle': undefined,
+                '_ww-text_lineHeight': undefined,
+            });
+        },
         /* wwEditor:end */
         'content.disabled': {
             immediate: true,
