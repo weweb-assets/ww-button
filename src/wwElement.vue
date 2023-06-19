@@ -129,6 +129,8 @@ export default {
         isReallyFocused(isFocused, wasFocused) {
             if (isFocused && !wasFocused) {
                 this.$emit('trigger-event', { name: 'focus' });
+            } else if (!isFocused && wasFocused) {
+                this.$emit('trigger-event', { name: 'blur' });
             }
         },
         isFocused: {
