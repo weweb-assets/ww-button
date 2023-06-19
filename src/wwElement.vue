@@ -7,6 +7,8 @@
         :style="buttonStyle"
         :data-ww-flag="'btn-' + content.buttonType"
         :disabled="content.disabled"
+        @focus="isReallyFocused = true"
+        @blur="onBlur($event)"
     >
         <wwElement v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwElement>
         <wwText tag="span" :text="text"></wwText>
@@ -37,7 +39,13 @@ export default {
         'change-borders-style',
         'add-state',
         'remove-state',
+        'trigger-event',
     ],
+    data() {
+        return {
+            isReallyFocused: false,
+        };
+    },
     computed: {
         buttonStyle() {
             return {
@@ -73,6 +81,14 @@ export default {
         },
         text() {
             return this.wwElementState.props.text;
+        },
+        isFocused() {
+            /* wwEditor:start */
+            if (this.wwEditorState.isSelected) {
+                return this.wwElementState.states.includes('focus');
+            }
+            /* wwEditor:end */
+            return this.isReallyFocused;
         },
     },
     watch: {
@@ -110,6 +126,21 @@ export default {
                 }
             },
         },
+        isReallyFocused(isFocused, wasFocused) {
+            if (isFocused && !wasFocused) {
+                this.$emit('trigger-event', { name: 'focus' });
+            }
+        },
+        isFocused: {
+            immediate: true,
+            handler(value) {
+                if (value) {
+                    this.$emit('add-state', 'focus');
+                } else {
+                    this.$emit('remove-state', 'focus');
+                }
+            },
+        },
     },
     methods: {
         /* wwEditor:start */
@@ -127,6 +158,9 @@ export default {
             }
         },
         /* wwEditor:end */
+        onBlur() {
+            this.isReallyFocused = false;
+        },
     },
 };
 </script>

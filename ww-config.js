@@ -55,6 +55,7 @@ export default {
             };
         },
     },
+    triggerEvents: [{ name: 'focus', label: { en: 'On focus' }, event: null }],
     properties: {
         backgroundColor: {
             label: {
