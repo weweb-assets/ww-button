@@ -72,6 +72,7 @@ export default {
             bindable: true,
             responsive: true,
             states: true,
+            classes: true,
             /* wwEditor:start */
             bindingValidation: {
                 cssSupports: 'color',
