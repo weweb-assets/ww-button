@@ -55,6 +55,7 @@ export default {
             };
         },
     },
+    states: ['focus', 'disabled'],
     triggerEvents: [
         { name: 'focus', label: { en: 'On focus' }, event: null },
         { name: 'blur', label: { en: 'On blur' }, event: null },
