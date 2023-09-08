@@ -8,7 +8,6 @@ export default {
     inherit: 'ww-text',
     options: {
         autoByContent: true,
-        hyperlink: true,
         disableLink: content => content.disabled,
     },
     editor: {
