@@ -41,6 +41,10 @@ export default {
         'remove-state',
         'trigger-event',
     ],
+    setup() {
+        const { createElement } = wwLib.useCreateElement();
+        return { createElement };
+    },
     data() {
         return {
             isReallyFocused: false,
@@ -99,8 +103,8 @@ export default {
                     return;
                 }
                 if (hasRightIcon && !this.content.rightIcon) {
-                    const uid = await wwLib.wwObjectHelper.create('ww-icon', {}, {}, this.wwFrontState.sectionId);
-                    this.$emit('update:content:effect', { rightIcon: { uid, isWwObject: true } });
+                    const content = await this.createElement('ww-icon');
+                    this.$emit('update:content:effect', { rightIcon: content });
                 }
             },
         },
@@ -110,8 +114,8 @@ export default {
                     return;
                 }
                 if (hasLeftIcon && !this.content.leftIcon) {
-                    const uid = await wwLib.wwObjectHelper.create('ww-icon', {}, {}, this.wwFrontState.sectionId);
-                    this.$emit('update:content:effect', { leftIcon: { uid, isWwObject: true } });
+                    const content = await this.createElement('ww-icon');
+                    this.$emit('update:content:effect', { leftIcon: content });
                 }
             },
         },
