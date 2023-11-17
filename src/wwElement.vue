@@ -41,10 +41,12 @@ export default {
         'remove-state',
         'trigger-event',
     ],
+    /* wwEditor:start */
     setup() {
         const { createElement } = wwLib.useCreateElement();
         return { createElement };
     },
+    /* wwEditor:end */
     data() {
         return {
             isReallyFocused: false,
