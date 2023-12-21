@@ -96,6 +96,11 @@ export default {
                 ],
             },
             defaultValue: 'button',
+            bindable: true,
+            bindingValidation: {
+                type: 'string',
+                tooltip: 'A string that defines the button type: `"button" | "submit"`',
+            },
         },
         disabled: {
             label: { en: 'Disabled' },
