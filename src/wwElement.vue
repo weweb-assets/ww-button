@@ -43,7 +43,7 @@ export default {
     ],
     /* wwEditor:start */
     setup() {
-        const { createElement } = wwLib.useCreateElement();
+        const { createElement } = wwLib.wwElement.useCreate();
         return { createElement };
     },
     /* wwEditor:end */
