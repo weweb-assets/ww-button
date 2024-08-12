@@ -7,6 +7,7 @@
         :style="buttonStyle"
         :data-ww-flag="'btn-' + content.buttonType"
         :disabled="content.disabled"
+        v-bind="properties"
         @focus="isReallyFocused = true"
         @blur="onBlur($event)"
     >
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 const TEXT_ALIGN_TO_JUSTIFY = {
     center: 'center',
     right: 'flex-end',
@@ -42,9 +44,16 @@ export default {
         'trigger-event',
     ],
     /* wwEditor:start */
-    setup() {
+    setup(props) {
         const { createElement } = wwLib.useCreateElement();
-        return { createElement };
+        const {
+            hasLink,
+            tag: linkTag,
+            properties,
+        } = wwLib.wwElement.useLink({
+            isDisabled: computed(() => props.content.disabled),
+        });
+        return { createElement, hasLink, linkTag, properties };
     },
     /* wwEditor:end */
     data() {
@@ -67,6 +76,9 @@ export default {
         },
         tag() {
             if (this.isEditing) return 'div';
+            if (this.hasLink) {
+                return this.linkTag;
+            }
             if (
                 this.content.buttonType === 'submit' ||
                 this.content.buttonType === 'reset' ||
@@ -76,7 +88,7 @@ export default {
             return 'div';
         },
         buttonType() {
-            if (this.isEditing) return '';
+            if (this.isEditing || this.hasLink) return '';
             if (
                 this.content.buttonType === 'submit' ||
                 this.content.buttonType === 'reset' ||
@@ -175,7 +187,6 @@ export default {
 
 <style lang="scss" scoped>
 .ww-button {
-    display: flex;
     justify-content: center;
     align-items: center;
     &.button {

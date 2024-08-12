@@ -8,7 +8,8 @@ export default {
     inherit: 'ww-text',
     options: {
         autoByContent: true,
-        disableLink: content => content.disabled,
+        displayAllowedValues: ['flex', 'inline-flex'],
+        linkable: true,
     },
     editor: {
         label: {
