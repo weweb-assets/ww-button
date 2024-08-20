@@ -43,9 +43,10 @@ export default {
         'remove-state',
         'trigger-event',
     ],
-    /* wwEditor:start */
     setup(props) {
+        /* wwEditor:start */
         const { createElement } = wwLib.useCreateElement();
+        /* wwEditor:end */
         const {
             hasLink,
             tag: linkTag,
@@ -53,9 +54,16 @@ export default {
         } = wwLib.wwElement.useLink({
             isDisabled: computed(() => props.content.disabled),
         });
-        return { createElement, hasLink, linkTag, properties };
+        return {
+            /* wwEditor:start */
+            createElement,
+            /* wwEditor:end */
+            hasLink,
+            linkTag,
+            properties,
+        };
     },
-    /* wwEditor:end */
+
     data() {
         return {
             isReallyFocused: false,
