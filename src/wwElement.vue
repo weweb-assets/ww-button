@@ -2,7 +2,7 @@
     <component
         :is="tag"
         class="ww-button"
-        :class="{ button: tag }"
+        :class="{ button: tag, '-link': hasLink }"
         :type="buttonType"
         :style="buttonStyle"
         :data-ww-flag="'btn-' + content.buttonType"
@@ -203,6 +203,9 @@ export default {
         background: none;
         font-family: inherit;
         font-size: inherit;
+    }
+    &.-link {
+        cursor: pointer;
     }
 }
 </style>
