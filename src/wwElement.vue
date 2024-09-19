@@ -2,7 +2,7 @@
     <component
         :is="tag"
         class="ww-button"
-        :class="{ button: tag, '-link': hasLink }"
+        :class="{ button: tag, '-link': hasLink && !isEditing }"
         :type="buttonType"
         :style="buttonStyle"
         :data-ww-flag="'btn-' + content.buttonType"
