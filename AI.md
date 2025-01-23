@@ -7,6 +7,7 @@ keywords: [button, submit, reset, icon, form, styling]
 #### ww-button
 
 Purpose: Renders a button element with configurable type, styling, and icon support.
+Ex: Button without icon: {"uid": "cta","tag": "ww-button","name": "Button","states": [],"props": {"default": { ... }},"styles": {"default": { ... }},"children": {}}
 
 Properties:
 - text: string|object - Button text content. Can be an object with {"lang":"text"} format (e.g: {"en":"English text","fr":"French text"})
@@ -18,7 +19,9 @@ Properties:
 
 Children:
 - leftIcon: ww-icon - Left icon with right padding
+- Ex: {"uid": "left-icon-cta","tag": "ww-button","name": "With left icon","states": [],"props": {"default": { "hasLeftIcon":true }},"styles": {"default": { ... }},"children": {"leftIcon": {"uid": "left-icon","tag": "ww-icon","name": "Left Icon","states": [],"props": {"default": { ... }},"styles": {"default": { ... }}}}}
 - rightIcon: ww-icon - Right icon with left padding
+- Ex: {"uid": "right-icon-cta","tag": "ww-button","name": "With right icon","states": [],"props": {"default": { "hasRightIcon":true }},"styles": {"default": { ... }},"children": {"rightIcon": {"uid": "right-icon","tag": "ww-icon","name": "Right Icon","states": [],"props": {"default": { ... }},"styles": {"default": { ... }}}}}
 
 Features:
 - Inherits ww-text properties
