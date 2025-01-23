@@ -27,6 +27,7 @@ Features:
 - Inherits ww-text properties
 - Action triggering support
 - Form submission integration
+- Button color and size are not passed to the icons. You need to set them on the icon also.
 
 Events:
 - focus: Triggered when button receives focus. No payload.
