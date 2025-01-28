@@ -19,9 +19,17 @@ Properties:
 
 Children:
 - leftIcon: ww-icon - Left icon with right padding
-- Ex: {"uid": "left-icon-cta","tag": "ww-button","name": "With left icon","states": [],"props": {"default": { "hasLeftIcon":true }},"styles": {"default": { "color": "#ff0000" }},"children": {"leftIcon": {"uid": "left-icon","tag": "ww-icon","name": "Left Icon","states": [],"props": {"default": { ... }},"styles": {"default": { "color": "#ff0000" }}}}}
+- Ex:
+  <elements>
+  {"uid":"left-icon-cta","tag":"ww-button","name":"With left icon","states":[],"props":{"default":{"hasLeftIcon":true}},"styles":{"default":{"color":"#ff0000"}},"children":{"leftIcon":{"uid":"left-icon"}}}
+  {"uid":"left-icon","tag":"ww-icon","name":"Left Icon","states":[],"props":{"default":{}},"styles":{"default":{"color":"#ff0000"}}}
+  </elements>
 - rightIcon: ww-icon - Right icon with left padding
-- Ex: {"uid": "right-icon-cta","tag": "ww-button","name": "With right icon","states": [],"props": {"default": { "hasRightIcon":true }},"styles": {"default": { "color": "#ff0000" }},"children": {"rightIcon": {"uid": "right-icon","tag": "ww-icon","name": "Right Icon","states": [],"props": {"default": { ... }},"styles": {"default": { "color": "#ff0000" }}}}}
+- Ex: 
+  <elements>
+  {"uid":"right-icon-cta","tag":"ww-button","name":"With right icon","states":[],"props":{"default":{"hasRightIcon":true}},"styles":{"default":{"color":"#ff0000"}},"children":{"rightIcon":{"uid":"right-icon"}}}
+  {"uid":"right-icon","tag":"ww-icon","name":"Right Icon","states":[],"props":{"default":{}},"styles":{"default":{"color":"#ff0000"}}}
+  </elements>
 
 Features:
 - Inherits ww-text properties
