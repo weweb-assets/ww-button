@@ -7,7 +7,7 @@ keywords: [button, submit, reset, icon, form, styling]
 #### ww-button
 
 Purpose: Renders a button element with configurable type, styling, and icon support.
-Ex: Button without icon: {"uid": "cta","tag": "ww-button","name": "Button","states": [],"props": {"default": { ... }},"styles": {"default": { ... }},"children": {}}
+Ex: Button without icon: {"uid": "cta","tag": "ww-button","name": "Button","states": [],"props": {"default": { ... }},"styles": {"default": { "cursor":"pointer", ... }},"children": {}}
 
 Properties:
 - text: string|object - Button text content. Can be an object with {"lang":"text"} format (e.g: {"en":"English text","fr":"French text"})
@@ -21,13 +21,13 @@ Children:
 - leftIcon: ww-icon - Left icon with right margin on the icon
 - Ex:
   <elements>
-  {"uid":"left-icon-cta","tag":"ww-button","name":"With left icon","states":[],"props":{"default":{"hasLeftIcon":true}},"styles":{"default":{"color":"#ff0000"}},"children":{"leftIcon":{"uid":"left-icon"}}}
+  {"uid":"left-icon-cta","tag":"ww-button","name":"With left icon","states":[],"props":{"default":{"hasLeftIcon":true}},"styles":{"default":{"color":"#ff0000","cursor":"pointer"}},"children":{"leftIcon":{"uid":"left-icon"}}}
   {"uid":"left-icon","tag":"ww-icon","name":"Left Icon","states":[],"props":{"default":{}},"styles":{"default":{"color":"#ff0000","margin":"0 12px 0 0"}}}
   </elements>
 - rightIcon: ww-icon - Right icon with left margin on the icon
 - Ex: 
   <elements>
-  {"uid":"right-icon-cta","tag":"ww-button","name":"With right icon","states":[],"props":{"default":{"hasRightIcon":true}},"styles":{"default":{"color":"#ff0000"}},"children":{"rightIcon":{"uid":"right-icon"}}}
+  {"uid":"right-icon-cta","tag":"ww-button","name":"With right icon","states":[],"props":{"default":{"hasRightIcon":true}},"styles":{"default":{"color":"#ff0000","cursor":"pointer"}},"children":{"rightIcon":{"uid":"right-icon"}}}
   {"uid":"right-icon","tag":"ww-icon","name":"Right Icon","states":[],"props":{"default":{}},"styles":{"default":{"color":"#ff0000","margin":"0 0 0 12px"}}}
   </elements>
 
