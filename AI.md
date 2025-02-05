@@ -18,6 +18,7 @@ Properties:
 - hasRightIcon: boolean - Shows right icon
 
 Children:
+- ww-button does have a `children` key. Only `leftIcon` and `rightIcon`.
 - leftIcon: ww-icon - Left icon with right margin on the icon
 - Ex:
   <elements>
