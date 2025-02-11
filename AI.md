@@ -22,21 +22,21 @@ Children:
 - leftIcon: ww-icon - Left icon with right margin on the icon
 - Ex:
   <elements>
-  {"uid":"left-icon-cta","tag":"ww-button","name":"With left icon","states":[],"props":{"default":{"hasLeftIcon":true}},"styles":{"default":{"color":"#ff0000","cursor":"pointer"}},"children":{"leftIcon":{"uid":"left-icon"}}}
-  {"uid":"left-icon","tag":"ww-icon","name":"Left Icon","states":[],"props":{"default":{}},"styles":{"default":{"color":"#ff0000","margin":"0 12px 0 0"}}}
+  {"uid":"left-icon-cta","tag":"ww-button","name":"With left icon","states":[],"props":{"default":{"hasLeftIcon":true}},"styles":{"default":{"color":"#ff0000","fontSize":"20px","cursor":"pointer"}},"children":{"leftIcon":{"uid":"left-icon"}}}
+  {"uid":"left-icon","tag":"ww-icon","name":"Left Icon","states":[],"props":{"color":"#ff0000","fontSize":"20","icon":"icon name"},"styles":{"default":{"margin":"0 12px 0 0"}}}
   </elements>
 - rightIcon: ww-icon - Right icon with left margin on the icon
 - Ex: 
   <elements>
-  {"uid":"right-icon-cta","tag":"ww-button","name":"With right icon","states":[],"props":{"default":{"hasRightIcon":true}},"styles":{"default":{"color":"#ff0000","cursor":"pointer"}},"children":{"rightIcon":{"uid":"right-icon"}}}
-  {"uid":"right-icon","tag":"ww-icon","name":"Right Icon","states":[],"props":{"default":{}},"styles":{"default":{"color":"#ff0000","margin":"0 0 0 12px"}}}
+  {"uid":"right-icon-cta","tag":"ww-button","name":"With right icon","states":[],"props":{"default":{"hasRightIcon":true}},"styles":{"default":{"color":"#ff0000","fontSize":"20px","cursor":"pointer"}},"children":{"rightIcon":{"uid":"right-icon"}}}
+  {"uid":"right-icon","tag":"ww-icon","name":"Right Icon","states":[],"props":{"color":"#ff0000","fontSize":"20","icon":"icon name"},"styles":{"default":{"margin":"0 0 0 12px"}}}
   </elements>
 
 Features:
 - Inherits ww-text properties
 - Action triggering support
 - Form submission integration
-- Button color and size are not passed to the icons. You need to set them on the icon also.
+- Button color and size are not passed to the icons. These styles are mandatory on the icon props (no unit on icon).
 
 Events:
 - focus: Triggered when button receives focus. No payload.
