@@ -199,6 +199,7 @@ export default {
 
 <style lang="scss" scoped>
 .ww-button {
+    border: 3px solid red;
     justify-content: center;
     align-items: center;
     &.button {
