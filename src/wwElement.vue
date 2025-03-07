@@ -19,12 +19,16 @@
 
 <script>
 import { computed } from 'vue';
+
 const TEXT_ALIGN_TO_JUSTIFY = {
     center: 'center',
     right: 'flex-end',
     left: 'flex-start',
     justify: 'center',
 };
+
+const NEW_ICON_BASE_ID = '1b1e2173-9b78-42cc-a8ee-a6167caea340'
+
 export default {
     props: {
         content: { type: Object, required: true },
@@ -125,7 +129,7 @@ export default {
                     return;
                 }
                 if (hasRightIcon && !this.content.rightIcon) {
-                    const content = await this.createElement('ww-icon');
+                    const content = await this.createElement(NEW_ICON_BASE_ID);
                     this.$emit('update:content:effect', { rightIcon: content });
                 }
             },
@@ -136,7 +140,7 @@ export default {
                     return;
                 }
                 if (hasLeftIcon && !this.content.leftIcon) {
-                    const content = await this.createElement('ww-icon');
+                    const content = await this.createElement(NEW_ICON_BASE_ID);
                     this.$emit('update:content:effect', { leftIcon: content });
                 }
             },
