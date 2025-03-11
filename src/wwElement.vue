@@ -125,7 +125,7 @@ export default {
                     return;
                 }
                 if (hasRightIcon && !this.content.rightIcon) {
-                    const content = await this.createElement('ww-icon');
+                    const content = await this.createElement('83d890fb-84f9-4386-b459-fb4be89a8e15');
                     this.$emit('update:content:effect', { rightIcon: content });
                 }
             },
@@ -136,7 +136,7 @@ export default {
                     return;
                 }
                 if (hasLeftIcon && !this.content.leftIcon) {
-                    const content = await this.createElement('ww-icon');
+                    const content = await this.createElement('83d890fb-84f9-4386-b459-fb4be89a8e15');
                     this.$emit('update:content:effect', { leftIcon: content });
                 }
             },
