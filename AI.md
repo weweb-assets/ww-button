@@ -18,13 +18,13 @@ Properties:
 - hasRightIcon: boolean - Shows right icon
 
 Slots:
-- leftIcon: ww-icon - Left icon with right margin on the icon
+- leftIcon: (object) ww-icon - Left icon with right margin on the icon
 Ex:
   <elements>
   {"uid":"left-icon-cta","tag":"ww-button","name":"With left icon","states":[],"props":{"default":{"hasLeftIcon":true}},"styles":{"default":{"color":"#ff0000","fontSize":"20px","cursor":"pointer"}},"slots":{"leftIcon":{"uid":"left-icon"}}}
   {"uid":"left-icon","tag":"ww-icon","name":"Left Icon","states":[],"props":{"color":"#ff0000","fontSize":"20","icon":"icon name"},"styles":{"default":{"margin":"0 12px 0 0"}}}
   </elements>
-- rightIcon: ww-icon - Right icon with left margin on the icon
+- rightIcon: (object) ww-icon - Right icon with left margin on the icon
 Ex: 
   <elements>
   {"uid":"right-icon-cta","tag":"ww-button","name":"With right icon","states":[],"props":{"default":{"hasRightIcon":true}},"styles":{"default":{"color":"#ff0000","fontSize":"20px","cursor":"pointer"}},"slots":{"rightIcon":{"uid":"right-icon"}}}
