@@ -123,6 +123,7 @@ export default {
         },
         leftIcon: {
             hidden: true,
+            isArray: false,
         },
         hasRightIcon: {
             label: { en: 'Right icon', fr: 'Icône droite' },
@@ -131,6 +132,7 @@ export default {
         },
         rightIcon: {
             hidden: true,
+            isArray: false,
         },
     },
 };
