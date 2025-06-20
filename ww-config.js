@@ -59,6 +59,8 @@ export default {
     triggerEvents: [
         { name: 'focus', label: { en: 'On focus' }, event: null },
         { name: 'blur', label: { en: 'On blur' }, event: null },
+        { name: 'keydown', label: { en: 'On key down' }, event: null },
+        { name: 'keyup', label: { en: 'On key up' }, event: null },
     ],
     properties: {
         backgroundColor: {

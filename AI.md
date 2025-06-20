@@ -40,6 +40,8 @@ Features:
 Events:
 - focus: Triggered when button receives focus. No payload.
 - blur: Triggered when button loses focus. No payload.
+- keydown: Triggered when a key is pressed while button has focus. No payload.
+- keyup: Triggered when a key is released while button has focus. No payload.
 
 States:
 - focus: Applied when the button has focus.

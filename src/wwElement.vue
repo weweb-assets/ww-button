@@ -20,6 +20,8 @@
         @keydown.space="onKeyActivate"
         @keyup.enter="onKeyDeactivate"
         @keyup.space="onKeyDeactivate"
+        @keydown="onKeyDown"
+        @keyup="onKeyUp"
     >
         <wwElement v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwElement>
         <wwText tag="span" :text="text"></wwText>
@@ -247,6 +249,12 @@ export default {
         },
         onKeyDeactivate() {
             this.isReallyActive = false;
+        },
+        onKeyDown(event) {
+            this.$emit('trigger-event', { name: 'keydown', event });
+        },
+        onKeyUp(event) {
+            this.$emit('trigger-event', { name: 'keyup', event });
         },
     },
 };
