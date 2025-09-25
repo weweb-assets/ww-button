@@ -82,6 +82,9 @@ export default {
                 type: 'string',
                 tooltip: 'A string that represents a color code: `"rebeccapurple" | "#00ff00" | "rgb(214, 122, 127)"`',
             },
+            propertyHelp: {
+                tooltip: 'The background color for the text inside the button.',
+            },
             /* wwEditor:end */
         },
         buttonType: {
@@ -100,10 +103,15 @@ export default {
             },
             defaultValue: 'button',
             bindable: true,
+            /* wwEditor:start */
             bindingValidation: {
                 type: 'string',
                 tooltip: 'A string that defines the button type: `"button" | "submit"`',
             },
+            propertyHelp: {
+                tooltip: 'Define the button type. Submit buttons will trigger form submission when clicked.',
+            },
+            /* wwEditor:end */
         },
         disabled: {
             label: { en: 'Disabled' },
@@ -116,25 +124,46 @@ export default {
                 type: 'boolean',
                 tooltip: 'A boolean that defines if the button is disabled: `true | false`',
             },
+            propertyHelp: {
+                tooltip: 'Disable the button, preventing user interaction and form submission.',
+            },
             /* wwEditor:end */
         },
         hasLeftIcon: {
             label: { en: 'Left icon', fr: 'Icône gauche' },
             section: 'settings',
             type: 'OnOff',
+            bindable: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'boolean',
+                tooltip: 'A boolean that defines if the button has a left icon: `true | false`',
+            },
+            propertyHelp: {
+                tooltip: 'Show an icon on the left side of the button text.',
+            },
+            /* wwEditor:end */
         },
         leftIcon: {
             hidden: true,
-            isArray: false,
         },
         hasRightIcon: {
             label: { en: 'Right icon', fr: 'Icône droite' },
             type: 'OnOff',
             section: 'settings',
+            bindable: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'boolean',
+                tooltip: 'A boolean that defines if the button has a right icon: `true | false`',
+            },
+            propertyHelp: {
+                tooltip: 'Show an icon on the right side of the button text.',
+            },
+            /* wwEditor:end */
         },
         rightIcon: {
             hidden: true,
-            isArray: false,
         },
     },
 };
