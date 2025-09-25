@@ -139,7 +139,6 @@ export default {
         },
     },
     watch: {
-        /* wwEditor:start */
         'content.hasRightIcon': {
             async handler(hasRightIcon) {
                 if (this.wwEditorState.isACopy) {
@@ -162,7 +161,6 @@ export default {
                 }
             },
         },
-        /* wwEditor:end */
         'content.disabled': {
             immediate: true,
             handler(value) {
