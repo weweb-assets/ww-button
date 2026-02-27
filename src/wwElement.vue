@@ -129,7 +129,11 @@ export default {
                     return;
                 }
                 if (hasRightIcon && !this.content.rightIcon?.isWwObject) {
-                    const content = await this.createElement('ww-icon');
+                    const content = await this.createElement('ww-icon', {
+                        conent: {
+                            color: "#FFFFFF", icon: "lucide/plus"
+                        },
+                    });
                     this.$emit('update:content:effect', { rightIcon: content });
                 }
             },
@@ -140,7 +144,11 @@ export default {
                     return;
                 }
                 if (hasLeftIcon && !this.content.leftIcon?.isWwObject) {
-                    const content = await this.createElement('ww-icon');
+                    const content = await this.createElement('ww-icon', {
+                        conent: {
+                            color: "#FFFFFF", icon: "lucide/plus"
+                        },
+                    });
                     this.$emit('update:content:effect', { leftIcon: content });
                 }
             },
