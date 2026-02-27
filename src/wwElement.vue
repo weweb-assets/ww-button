@@ -130,7 +130,7 @@ export default {
                 }
                 if (hasRightIcon && !this.content.rightIcon?.isWwObject) {
                     const content = await this.createElement('ww-icon', {
-                        conent: {
+                        content: {
                             color: "#FFFFFF", icon: "lucide/plus"
                         },
                     });
@@ -145,7 +145,7 @@ export default {
                 }
                 if (hasLeftIcon && !this.content.leftIcon?.isWwObject) {
                     const content = await this.createElement('ww-icon', {
-                        conent: {
+                        content: {
                             color: "#FFFFFF", icon: "lucide/plus"
                         },
                     });
