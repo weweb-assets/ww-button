@@ -131,7 +131,7 @@ export default {
                 if (hasRightIcon && !this.content.rightIcon?.isWwObject) {
                     const content = await this.createElement('ww-icon', {
                         content: {
-                            color: "#FFFFFF", icon: "lucide/plus"
+                            color: "#000000", icon: "lucide/plus"
                         },
                     });
                     this.$emit('update:content:effect', { rightIcon: content });
@@ -146,7 +146,7 @@ export default {
                 if (hasLeftIcon && !this.content.leftIcon?.isWwObject) {
                     const content = await this.createElement('ww-icon', {
                         content: {
-                            color: "#FFFFFF", icon: "lucide/plus"
+                            color: "#000000", icon: "lucide/plus"
                         },
                     });
                     this.$emit('update:content:effect', { leftIcon: content });
