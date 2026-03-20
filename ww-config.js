@@ -57,10 +57,10 @@ export default {
     },
     states: ['focus', 'disabled', 'active'],
     triggerEvents: [
-        { name: 'focus', label: { en: 'On focus' }, event: null },
-        { name: 'blur', label: { en: 'On blur' }, event: null },
-        { name: 'keydown', label: { en: 'On key down' }, event: null },
-        { name: 'keyup', label: { en: 'On key up' }, event: null },
+        { name: 'focus', label: { en: 'On focus' }, event: null, "description": "Run when the button becomes active (for example, when clicked)." },
+        { name: 'blur', label: { en: 'On blur' }, event: null, "description": "Run when the button stops being active." },
+        { name: 'keydown', label: { en: 'On key down' }, event: null, "description": "Run when the user starts pressing a key while the button is active." },
+        { name: 'keyup', label: { en: 'On key up' }, event: null, "description": "Run when the user releases a key while the button is active." },
     ],
     properties: {
         backgroundColor: {
