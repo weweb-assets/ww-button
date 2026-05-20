@@ -124,6 +124,7 @@ export default {
     watch: {
         /* wwEditor:start */
         'content.hasRightIcon': {
+            immediate: true,
             async handler(hasRightIcon) {
                 if (this.wwEditorState.isACopy) {
                     return;
@@ -137,9 +138,9 @@ export default {
                     this.$emit('update:content:effect', { rightIcon: content });
                 }
             },
-            {immeditate: true}
         },
         'content.hasLeftIcon': {
+            immediate: true,
             async handler(hasLeftIcon) {
                 if (this.wwEditorState.isACopy) {
                     return;
@@ -153,7 +154,6 @@ export default {
                     this.$emit('update:content:effect', { leftIcon: content });
                 }
             },
-            {immeditate: true}
         },
         /* wwEditor:end */
         'content.disabled': {
