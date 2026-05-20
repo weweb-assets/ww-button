@@ -137,6 +137,7 @@ export default {
                     this.$emit('update:content:effect', { rightIcon: content });
                 }
             },
+            {immeditate: true}
         },
         'content.hasLeftIcon': {
             async handler(hasLeftIcon) {
@@ -152,6 +153,7 @@ export default {
                     this.$emit('update:content:effect', { leftIcon: content });
                 }
             },
+            {immeditate: true}
         },
         /* wwEditor:end */
         'content.disabled': {
