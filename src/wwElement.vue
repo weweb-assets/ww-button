@@ -124,6 +124,7 @@ export default {
     watch: {
         /* wwEditor:start */
         'content.hasRightIcon': {
+            immediate: true,
             async handler(hasRightIcon) {
                 if (this.wwEditorState.isACopy) {
                     return;
@@ -139,6 +140,7 @@ export default {
             },
         },
         'content.hasLeftIcon': {
+            immediate: true,
             async handler(hasLeftIcon) {
                 if (this.wwEditorState.isACopy) {
                     return;
