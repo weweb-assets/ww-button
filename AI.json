@@ -39,12 +39,12 @@
         },
         {
             "name": "hasLeftIcon",
-            "description": "Show left icon slot",
+            "description": "Set to true to show a left icon. REQUIRED for the icon to render (the icon only shows when this is true); enabling it auto-creates a child ww-icon element in the leftIcon slot.",
             "type": "boolean"
         },
         {
             "name": "hasRightIcon",
-            "description": "Show right icon slot",
+            "description": "Set to true to show a right icon. REQUIRED for the icon to render (the icon only shows when this is true); enabling it auto-creates a child ww-icon element in the rightIcon slot.",
             "type": "boolean"
         }
     ],
@@ -84,12 +84,12 @@
     "slots": [
         {
             "name": "leftIcon",
-            "description": "Use a ww-icon for this icon element displayed on the left side of the button text",
+            "description": "Child ww-icon element displayed on the left side of the button text. Holds a full ww-icon element (its own uid, style and size), NOT an icon-name string. The icon renders only when hasLeftIcon is true (setting hasLeftIcon to true auto-creates this child). Configure the icon by editing this child ww-icon; never write an icon name string into content.default.leftIcon via editElement (it breaks the icon).",
             "type": "object"
         },
         {
             "name": "rightIcon",
-            "description": "Use a ww-icon for this icon element displayed on the right side of the button text",
+            "description": "Child ww-icon element displayed on the right side of the button text. Holds a full ww-icon element (its own uid, style and size), NOT an icon-name string. The icon renders only when hasRightIcon is true (setting hasRightIcon to true auto-creates this child). Configure the icon by editing this child ww-icon; never write an icon name string into content.default.rightIcon via editElement (it breaks the icon).",
             "type": "object"
         }
     ],
