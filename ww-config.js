@@ -122,6 +122,13 @@ export default {
             label: { en: 'Left icon', fr: 'Icône gauche' },
             section: 'settings',
             type: 'OnOff',
+            bindable: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'boolean',
+                tooltip: 'A boolean that shows/hides the left icon: `true | false`',
+            },
+            /* wwEditor:end */
         },
         leftIcon: {
             hidden: true,
@@ -131,6 +138,13 @@ export default {
             label: { en: 'Right icon', fr: 'Icône droite' },
             type: 'OnOff',
             section: 'settings',
+            bindable: true,
+            /* wwEditor:start */
+            bindingValidation: {
+                type: 'boolean',
+                tooltip: 'A boolean that shows/hides the right icon: `true | false`',
+            },
+            /* wwEditor:end */
         },
         rightIcon: {
             hidden: true,
