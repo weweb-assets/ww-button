@@ -11,6 +11,14 @@ export default {
         displayAllowedValues: ['flex', 'inline-flex'],
         linkable: true,
     },
+    css({ content }) {
+        return [
+            {
+                property: '--ww-text-background-color',
+                value: content.backgroundColor,
+            },
+        ];
+    },
     editor: {
         label: {
             en: 'Button',
