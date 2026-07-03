@@ -68,7 +68,7 @@ export default {
     computed: {
         buttonStyle() {
             return {
-                justifyContent: TEXT_ALIGN_TO_JUSTIFY[this.content['_ww-text_textAlign']] || 'center',
+                '--ww-button-justify-content': TEXT_ALIGN_TO_JUSTIFY[this.content['_ww-text_textAlign']] || 'center',
             };
         },
         isEditing() {
@@ -255,15 +255,11 @@ export default {
 
 <style lang="scss" scoped>
 .ww-button {
-    justify-content: center;
+    justify-content: var(--ww-button-justify-content, center);
     align-items: center;
 
     &.button {
-        outline: none;
-        border: none;
-        background: none;
-        font-family: inherit;
-        font-size: inherit;
+        appearance: none;
     }
 
     &.-link {
