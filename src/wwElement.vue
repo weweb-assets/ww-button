@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" class="ww-button" :class="{ button: tag, '-link': hasLink && !isEditing, active: isActive }"
+    <component :is="tag" class="ww-button" :class="{ button: tag, '-link': hasLink && !isEditing }"
         :type="buttonType" :style="buttonStyle" :data-ww-flag="'btn-' + content.buttonType" :disabled="content.disabled"
         v-bind="properties" @focus="isReallyFocused = true" @blur="onBlur($event)" @mousedown="onMouseActivate"
         @mouseup="onMouseDeactivate" @mouseleave="onMouseDeactivate" @touchstart="onTouchActivate"
@@ -34,8 +34,6 @@ export default {
         'update:content:effect',
         'change-menu-visibility',
         'change-borders-style',
-        'add-state',
-        'remove-state',
         'trigger-event',
     ],
     setup(props) {
@@ -68,7 +66,7 @@ export default {
     computed: {
         buttonStyle() {
             return {
-                justifyContent: TEXT_ALIGN_TO_JUSTIFY[this.content['_ww-text_textAlign']] || 'center',
+                '--ww-button-justify-content': TEXT_ALIGN_TO_JUSTIFY[this.content['_ww-text_textAlign']] || 'center',
             };
         },
         isEditing() {
@@ -103,22 +101,6 @@ export default {
         },
         text() {
             return this.wwElementState.props.text;
-        },
-        isFocused() {
-            /* wwEditor:start */
-            if (this.wwEditorState.isSelected) {
-                return this.wwElementState.states.includes('focus');
-            }
-            /* wwEditor:end */
-            return this.isReallyFocused;
-        },
-        isActive() {
-            /* wwEditor:start */
-            if (this.wwEditorState.isSelected) {
-                return this.wwElementState.states.includes('active');
-            }
-            /* wwEditor:end */
-            return this.isReallyActive;
         },
     },
     watch: {
@@ -156,42 +138,12 @@ export default {
             },
         },
         /* wwEditor:end */
-        'content.disabled': {
-            immediate: true,
-            handler(value) {
-                if (value) {
-                    this.$emit('add-state', 'disabled');
-                } else {
-                    this.$emit('remove-state', 'disabled');
-                }
-            },
-        },
         isReallyFocused(isFocused, wasFocused) {
             if (isFocused && !wasFocused) {
                 this.$emit('trigger-event', { name: 'focus' });
             } else if (!isFocused && wasFocused) {
                 this.$emit('trigger-event', { name: 'blur' });
             }
-        },
-        isFocused: {
-            immediate: true,
-            handler(value) {
-                if (value) {
-                    this.$emit('add-state', 'focus');
-                } else {
-                    this.$emit('remove-state', 'focus');
-                }
-            },
-        },
-        isActive: {
-            immediate: true,
-            handler(value) {
-                if (value) {
-                    this.$emit('add-state', 'active');
-                } else {
-                    this.$emit('remove-state', 'active');
-                }
-            },
         },
     },
     methods: {
@@ -255,15 +207,11 @@ export default {
 
 <style lang="scss" scoped>
 .ww-button {
-    justify-content: center;
+    justify-content: var(--ww-button-justify-content, center);
     align-items: center;
 
     &.button {
-        outline: none;
-        border: none;
-        background: none;
-        font-family: inherit;
-        font-size: inherit;
+        appearance: none;
     }
 
     &.-link {

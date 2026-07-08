@@ -55,7 +55,11 @@ export default {
             };
         },
     },
-    states: ['focus', 'disabled', 'active'],
+    states: [
+        { label: 'focus', selector: '&:focus-within' },
+        { label: 'disabled', selectors: ['&:disabled', '&[disabled]'] },
+        { label: 'active', selector: '&:active' },
+    ],
     triggerEvents: [
         { name: 'focus', label: { en: 'On focus' }, event: null },
         { name: 'blur', label: { en: 'On blur' }, event: null },
