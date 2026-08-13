@@ -1,6 +1,7 @@
 <template>
     <component :is="tag" class="ww-button" :class="{ button: tag, '-link': hasLink && !isEditing }"
-        :type="buttonType" :style="buttonStyle" :data-ww-flag="'btn-' + content.buttonType" :disabled="content.disabled"
+        :type="buttonType" :style="buttonStyle" :data-ww-flag="'btn-' + content.buttonType"
+        :disabled="content.disabled || null"
         v-bind="properties" @focus="isReallyFocused = true" @blur="onBlur($event)" @mousedown="onMouseActivate"
         @mouseup="onMouseDeactivate" @mouseleave="onMouseDeactivate" @touchstart="onTouchActivate"
         @touchend="onTouchDeactivate" @touchcancel="onTouchDeactivate" @keydown.enter="onKeyActivate"
