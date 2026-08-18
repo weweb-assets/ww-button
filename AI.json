@@ -14,7 +14,7 @@
             "Disabled state",
             "Focus, blur, keydown, keyup events",
             "Form integration with submit type",
-            "Custom background color"
+            "Custom button background through element styles"
         ],
         "inherit": [
             "ww-text"
@@ -96,6 +96,7 @@
     "variables": [],
     "specifications": [
         "Inherits text properties from ww-text element",
+        "The text background content property does not exist. Never set content.backgroundColor; use the element style backgroundColor to style the whole button.",
         "Submit type buttons should be used inside a ww-form-container",
         "For form submission workflows, trigger them on the form container, not the submit button",
         "You need to set margin values in icons to create spacing between the icon and text",

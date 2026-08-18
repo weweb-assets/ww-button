@@ -55,7 +55,11 @@ export default {
             };
         },
     },
-    states: ['focus', 'disabled', 'active'],
+    states: [
+        { label: 'focus', selector: '&:focus-within' },
+        { label: 'disabled', selectors: ['&:disabled', '&[disabled]'] },
+        { label: 'active', selector: '&:active' },
+    ],
     triggerEvents: [
         { name: 'focus', label: { en: 'On focus' }, event: null },
         { name: 'blur', label: { en: 'On blur' }, event: null },
@@ -63,27 +67,6 @@ export default {
         { name: 'keyup', label: { en: 'On key up' }, event: null },
     ],
     properties: {
-        backgroundColor: {
-            label: {
-                en: 'Text Background',
-                fr: 'Background du Texte',
-            },
-            type: 'Color',
-            options: {
-                nullable: true,
-            },
-            bindable: true,
-            responsive: true,
-            states: true,
-            classes: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                cssSupports: 'color',
-                type: 'string',
-                tooltip: 'A string that represents a color code: `"rebeccapurple" | "#00ff00" | "rgb(214, 122, 127)"`',
-            },
-            /* wwEditor:end */
-        },
         buttonType: {
             label: {
                 en: 'Type',
