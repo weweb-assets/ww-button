@@ -103,16 +103,24 @@ export default {
         text() {
             return this.wwElementState.props.text;
         },
+        /* wwEditor:start */
+        needsRightIcon() {
+            return !!(this.content.hasRightIcon || this.wwEditorState.boundProps?.hasRightIcon);
+        },
+        needsLeftIcon() {
+            return !!(this.content.hasLeftIcon || this.wwEditorState.boundProps?.hasLeftIcon);
+        },
+        /* wwEditor:end */
     },
     watch: {
         /* wwEditor:start */
-        'content.hasRightIcon': {
+        needsRightIcon: {
             immediate: true,
-            async handler(hasRightIcon) {
+            async handler(needsRightIcon) {
                 if (this.wwEditorState.isACopy) {
                     return;
                 }
-                if (hasRightIcon && !this.content.rightIcon?.isWwObject) {
+                if (needsRightIcon && !this.content.rightIcon?.isWwObject) {
                     const content = await this.createElement('ww-icon', {
                         content: {
                             color: "#000000", icon: "lucide/plus"
@@ -122,13 +130,13 @@ export default {
                 }
             },
         },
-        'content.hasLeftIcon': {
+        needsLeftIcon: {
             immediate: true,
-            async handler(hasLeftIcon) {
+            async handler(needsLeftIcon) {
                 if (this.wwEditorState.isACopy) {
                     return;
                 }
-                if (hasLeftIcon && !this.content.leftIcon?.isWwObject) {
+                if (needsLeftIcon && !this.content.leftIcon?.isWwObject) {
                     const content = await this.createElement('ww-icon', {
                         content: {
                             color: "#000000", icon: "lucide/plus"
