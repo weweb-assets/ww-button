@@ -51,7 +51,7 @@
     "states": [
         {
             "name": "focus",
-            "description": "Button has focus"
+            "description": "Matches CSS :focus-within while the Button itself or a descendant has focus. Pointer clicks and keyboard navigation can both give focus."
         },
         {
             "name": "disabled",
@@ -99,7 +99,7 @@
         "The text background content property does not exist. Never set content.backgroundColor; use the element style backgroundColor to style the whole button.",
         "Submit type buttons should be used inside a ww-form-container",
         "For form submission workflows, trigger them on the form container, not the submit button",
-        "You need to set margin values in icons to create spacing between the icon and text",
+        "Classes can style padding, colors, borders, and typography. Button does not read gap (including rowGap and columnGap), justifyContent, alignItems, or flexDirection from classes. Set content.default.textAlign (left, center or right) to align the text and icons horizontally. Set style.default.margin on the child ww-icon using the desired spacing as the right margin of a left icon or the left margin of a right icon. Use a layout-capable element such as ww-div for reusable flex or grid layout among children.",
         "Never forget the 'text' prop in the contents. The button will not display without it!"
     ],
     "examples": []
